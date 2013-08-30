@@ -17,7 +17,7 @@ LPDIRECTINPUT		dinput = NULL;
 #endif
 
 #ifndef MAX_BUTTON
-#define MAX_BUTTON 32
+#define MAX_BUTTON 64
 #endif
 
 char joyname[2][MAX_PATH];
@@ -35,11 +35,11 @@ BYTE JoyPortData[2];
 
 #ifdef ANDROID
 
-#define VBTN_MAX 32
+#define VBTN_MAX 64
 #define VBTN_ON 2
 #define VBTN_OFF 1
 #define VBTN_NOUSE 0
-#define FINGER_MAX 10
+#define FINGER_MAX 15
 
 // SDL_FINGERと比較するので範囲は0~1.0
 typedef struct _vbtn_rect {
@@ -59,8 +59,8 @@ BYTE vbtn_state[VBTN_MAX];
 	vbtn_state[id] = VBTN_OFF;				\
 	vbtn_rect[id].x = (float)(bx) / 800.0;			\
 	vbtn_rect[id].y = (float)(by) / 600.0;			\
-	vbtn_rect[id].x2 = ((float)(bx) + 32.0) / 800.0;	\
-	vbtn_rect[id].y2 = ((float)(by) + 32.0) / 600.0;	\
+	vbtn_rect[id].x2 = ((float)(bx) + 64.0) / 800.0;	\
+	vbtn_rect[id].y2 = ((float)(by) + 64.0) / 600.0;	\
 }
 
 void Joystick_Init(void)
@@ -86,14 +86,14 @@ void Joystick_Init(void)
 	//テクスチャの設定といっしょにしたいがとりあえず別々に設定
 	//ボタンのTexture idは1 origin、ボタンidは0 originなので注意
 	// 左右上下 (上上下下左右左右BAではない)
-	SET_VBTN(0, 20, 450);
-	SET_VBTN(1, 100, 450);
-	SET_VBTN(2, 60, 400);
-	SET_VBTN(3, 60, 500);
+	SET_VBTN(0, 20, 430);
+	SET_VBTN(1, 200, 430);
+	SET_VBTN(2, 110, 360);
+	SET_VBTN(3, 110, 500);
 
 	// ボタン
-	SET_VBTN(4, 680, 450);
-	SET_VBTN(5, 750, 450);
+	SET_VBTN(4, 630, 430);
+	SET_VBTN(5, 720, 430);
 #endif
 }
 
