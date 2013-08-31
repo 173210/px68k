@@ -59,8 +59,8 @@ BYTE vbtn_state[VBTN_MAX];
 	vbtn_state[id] = VBTN_OFF;				\
 	vbtn_rect[id].x = (float)(bx) / 800.0;			\
 	vbtn_rect[id].y = (float)(by) / 600.0;			\
-	vbtn_rect[id].x2 = ((float)(bx) + 64.0) / 800.0;	\
-	vbtn_rect[id].y2 = ((float)(by) + 64.0) / 600.0;	\
+	vbtn_rect[id].x2 = ((float)(bx) + 130.0) / 800.0;	\
+	vbtn_rect[id].y2 = ((float)(by) + 130.0) / 600.0;	\
 }
 
 void Joystick_Init(void)
@@ -86,14 +86,14 @@ void Joystick_Init(void)
 	//テクスチャの設定といっしょにしたいがとりあえず別々に設定
 	//ボタンのTexture idは1 origin、ボタンidは0 originなので注意
 	// 左右上下 (上上下下左右左右BAではない)
-	SET_VBTN(0, 20, 430);
-	SET_VBTN(1, 200, 430);
-	SET_VBTN(2, 110, 360);
-	SET_VBTN(3, 110, 500);
+	SET_VBTN(0, 30, 360);
+	SET_VBTN(1, 220, 360);
+	SET_VBTN(2, 130, 290);
+	SET_VBTN(3, 130, 430);
 
 	// ボタン
-	SET_VBTN(4, 630, 430);
-	SET_VBTN(5, 720, 430);
+	SET_VBTN(4, 430, 360);
+	SET_VBTN(5, 620, 360);
 #endif
 }
 

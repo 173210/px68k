@@ -299,10 +299,10 @@ int WinDraw_Init(void)
 //	glTexParameteri( GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
 	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, 1024, 1024, 0, GL_RGB, GL_UNSIGNED_SHORT_5_6_5, ScrBuf);
 
-	WORD BtnTex[64*64];
+	WORD BtnTex[130*130];
 	int i;
 	//とりあえず薄めの緑で。
-	for (i = 0; i < 64*64; i++) {
+	for (i = 0; i < 130*130; i++) {
 		BtnTex[i] = 0x03e0;
 	}
 
@@ -311,7 +311,7 @@ int WinDraw_Init(void)
 		glBindTexture(GL_TEXTURE_2D, texid[i]);
 		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR );
 		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR );
-		glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, 64, 64, 0, GL_RGB, GL_UNSIGNED_SHORT_5_6_5, BtnTex);
+		glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, 130, 130, 0, GL_RGB, GL_UNSIGNED_SHORT_5_6_5, BtnTex);
 	}
 #elif defined(PSP)
 
@@ -390,7 +390,7 @@ static void draw_texture(GLfloat *coor, GLfloat *vert)
 	glBindTexture(GL_TEXTURE_2D, texid);				\
 	/* Texture から必要な部分を抜き出す(32x32を全部使う) */		\
 	SET_GLFLOATS(texture_coordinates, 0.0f, 1.0f, 0.0f, 0.0f, 1.0f, 1.0f, 1.0f, 0.0f); \
-	SET_GLFLOATS(vertices, (GLfloat)(x), (y)+64.0f, (GLfloat)(x), (GLfloat)(y), (x)+64.0f, (y)+64.0f, (x)+64.0f, (y)+0.0f); \
+	SET_GLFLOATS(vertices, (GLfloat)(x), (y)+130.0f, (GLfloat)(x), (GLfloat)(y), (x)+130.0f, (y)+130.0f, (x)+130.0f, (y)+0.0f); \
 	draw_texture(texture_coordinates, vertices);			\
 }
 #endif
@@ -459,14 +459,14 @@ WinDraw_Draw(void)
 	draw_texture(texture_coordinates, vertices);
 
 	// 左右上下 (上上下下左右左右BAではない)
-	draw_button(texid[1], 20, 430);
-	draw_button(texid[2], 200, 430);
-	draw_button(texid[3], 110, 360);
-	draw_button(texid[4], 110, 500);
+	draw_button(texid[1], 30, 360);
+	draw_button(texid[2], 220, 360);
+	draw_button(texid[3], 130, 290);
+	draw_button(texid[4], 130, 430);
 
 	// ボタン
-	draw_button(texid[5], 630, 430);
-	draw_button(texid[6], 720, 430);
+	draw_button(texid[5], 430, 360);
+	draw_button(texid[6], 620, 360);
 
 	//	glDeleteTextures(1, &texid);
 
