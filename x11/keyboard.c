@@ -336,19 +336,18 @@ Keyboard_KeyDown(DWORD wp)
 
 	BYTE code;
 	BYTE newwp;
-#if 0
 	if (wp & ~0xff) {
+#if 0
 		if (wp == GDK_VoidSymbol)
 			code = NC;
-		else if ((wp & 0xff00) == 0xff00)
+		else
+#endif
+		if ((wp & 0xff00) == 0xff00)
 			code = KeyTable[(wp & 0xff) | 0x100];
 		else
 			code = NC;
 	} else
 		code = KeyTable[wp & 0xff];
-#endif
-
-	code = KeyTable[wp];
 
 	printf("wp=0x%x, code=0x%x\n", wp, code);
 	printf("SDLK_UP: 0x%x", SDLK_UP);
@@ -412,19 +411,18 @@ Keyboard_KeyUp(DWORD wp)
 {
 	BYTE code;
 	BYTE newwp;
-#if 0
 	if (wp & ~0xff) {
+#if 0
 		if (wp == GDK_VoidSymbol)
 			code = NC;
-		else if ((wp & 0xff00) == 0xff00)
+		else
+#endif
+		if ((wp & 0xff00) == 0xff00)
 			code = KeyTable[(wp & 0xff) | 0x100];
 		else
 			code = NC;
 	} else
 		code = KeyTable[wp & 0xff];
-#endif
-
-	code = KeyTable[wp];
 
 	if (code != NC) {
 		newwp = ((KeyBufWP + 1) & (KeyBufSize - 1));
