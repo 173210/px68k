@@ -1,0 +1,8 @@
+# Binary outputs
+android/bin/
+android/libs/
+android/obj/
+
+# Misc
+*~
+
