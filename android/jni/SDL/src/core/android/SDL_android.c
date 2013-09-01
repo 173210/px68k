@@ -141,7 +141,7 @@ void SDL_Android_Init(JNIEnv* mEnv, jclass cls)
 }
 
 // Resize
-void Java_org_libsdl_app_SDLActivity_onNativeResize(
+void Java_com_fc2_blog45_hissorii_px68k_SDLActivity_onNativeResize(
                                     JNIEnv* env, jclass jcls,
                                     jint width, jint height, jint format)
 {
@@ -149,21 +149,21 @@ void Java_org_libsdl_app_SDLActivity_onNativeResize(
 }
 
 // Keydown
-void Java_org_libsdl_app_SDLActivity_onNativeKeyDown(
+void Java_com_fc2_blog45_hissorii_px68k_SDLActivity_onNativeKeyDown(
                                     JNIEnv* env, jclass jcls, jint keycode)
 {
     Android_OnKeyDown(keycode);
 }
 
 // Keyup
-void Java_org_libsdl_app_SDLActivity_onNativeKeyUp(
+void Java_com_fc2_blog45_hissorii_px68k_SDLActivity_onNativeKeyUp(
                                     JNIEnv* env, jclass jcls, jint keycode)
 {
     Android_OnKeyUp(keycode);
 }
 
 // Keyboard Focus Lost
-void Java_org_libsdl_app_SDLActivity_onNativeKeyboardFocusLost(
+void Java_com_fc2_blog45_hissorii_px68k_SDLActivity_onNativeKeyboardFocusLost(
                                     JNIEnv* env, jclass jcls)
 {
     /* Calling SDL_StopTextInput will take care of hiding the keyboard and cleaning up the DummyText widget */
@@ -172,7 +172,7 @@ void Java_org_libsdl_app_SDLActivity_onNativeKeyboardFocusLost(
 
 
 // Touch
-void Java_org_libsdl_app_SDLActivity_onNativeTouch(
+void Java_com_fc2_blog45_hissorii_px68k_SDLActivity_onNativeTouch(
                                     JNIEnv* env, jclass jcls,
                                     jint touch_device_id_in, jint pointer_finger_id_in,
                                     jint action, jfloat x, jfloat y, jfloat p)
@@ -181,7 +181,7 @@ void Java_org_libsdl_app_SDLActivity_onNativeTouch(
 }
 
 // Accelerometer
-void Java_org_libsdl_app_SDLActivity_onNativeAccel(
+void Java_com_fc2_blog45_hissorii_px68k_SDLActivity_onNativeAccel(
                                     JNIEnv* env, jclass jcls,
                                     jfloat x, jfloat y, jfloat z)
 {
@@ -192,14 +192,14 @@ void Java_org_libsdl_app_SDLActivity_onNativeAccel(
 }
 
 // Low memory
-void Java_org_libsdl_app_SDLActivity_nativeLowMemory(
+void Java_com_fc2_blog45_hissorii_px68k_SDLActivity_nativeLowMemory(
                                     JNIEnv* env, jclass cls)
 {
     SDL_SendAppEvent(SDL_APP_LOWMEMORY);
 }
 
 // Quit
-void Java_org_libsdl_app_SDLActivity_nativeQuit(
+void Java_com_fc2_blog45_hissorii_px68k_SDLActivity_nativeQuit(
                                     JNIEnv* env, jclass cls)
 {
     // Inject a SDL_QUIT event
@@ -208,7 +208,7 @@ void Java_org_libsdl_app_SDLActivity_nativeQuit(
 }
 
 // Pause
-void Java_org_libsdl_app_SDLActivity_nativePause(
+void Java_com_fc2_blog45_hissorii_px68k_SDLActivity_nativePause(
                                     JNIEnv* env, jclass cls)
 {
     if (Android_Window) {
@@ -224,7 +224,7 @@ void Java_org_libsdl_app_SDLActivity_nativePause(
 }
 
 // Resume
-void Java_org_libsdl_app_SDLActivity_nativeResume(
+void Java_com_fc2_blog45_hissorii_px68k_SDLActivity_nativeResume(
                                     JNIEnv* env, jclass cls)
 {
     __android_log_print(ANDROID_LOG_VERBOSE, "SDL", "nativeResume()");
@@ -242,7 +242,7 @@ void Java_org_libsdl_app_SDLActivity_nativeResume(
     }
 }
 
-void Java_org_libsdl_app_SDLInputConnection_nativeCommitText(
+void Java_com_fc2_blog45_hissorii_px68k_SDLInputConnection_nativeCommitText(
                                     JNIEnv* env, jclass cls,
                                     jstring text, jint newCursorPosition)
 {
@@ -253,7 +253,7 @@ void Java_org_libsdl_app_SDLInputConnection_nativeCommitText(
     (*env)->ReleaseStringUTFChars(env, text, utftext);
 }
 
-void Java_org_libsdl_app_SDLInputConnection_nativeSetComposingText(
+void Java_com_fc2_blog45_hissorii_px68k_SDLInputConnection_nativeSetComposingText(
                                     JNIEnv* env, jclass cls,
                                     jstring text, jint newCursorPosition)
 {

@@ -1,4 +1,4 @@
-package org.libsdl.app;
+package com.fc2.blog45.hissorii.px68k;
 
 import javax.microedition.khronos.egl.EGL10;
 import javax.microedition.khronos.egl.EGLConfig;
