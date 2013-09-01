@@ -1,5 +1,6 @@
 # Binary outputs
 android/bin/
+android/gen/
 android/libs/
 android/obj/
 
