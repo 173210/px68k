@@ -17,7 +17,7 @@ LPDIRECTINPUT		dinput = NULL;
 #endif
 
 #ifndef MAX_BUTTON
-#define MAX_BUTTON 64
+#define MAX_BUTTON 32
 #endif
 
 char joyname[2][MAX_PATH];
@@ -65,14 +65,14 @@ void Joystick_Init(void)
 	//テクスチャの設定といっしょにしたいがとりあえず別々に設定
 	//ボタンのTexture idは1 origin、ボタンidは0 originなので注意
 	// 左右上下 (上上下下左右左右BAではない)
-	SET_VBTN(0, 30, 360);
-	SET_VBTN(1, 220, 360);
-	SET_VBTN(2, 130, 290);
-	SET_VBTN(3, 130, 430);
+	SET_VBTN(0, 20, 450);
+	SET_VBTN(1, 100, 450);
+	SET_VBTN(2, 60, 400);
+	SET_VBTN(3, 60, 500); 
 
 	// ボタン
-	SET_VBTN(4, 430, 360);
-	SET_VBTN(5, 620, 360);
+	SET_VBTN(4, 680, 450);
+	SET_VBTN(5, 750, 450); 
 #endif
 }
 

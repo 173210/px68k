@@ -28,13 +28,13 @@ extern BYTE JoyKeyState;
 
 #ifdef ANDROID
 
-#define VBTN_MAX 64
-#define VBTN_WIDTH 64
-#define VBTN_HEIGHT 64
+#define VBTN_MAX 32
+#define VBTN_WIDTH 32
+#define VBTN_HEIGHT 32
 #define VBTN_ON 2
 #define VBTN_OFF 1
 #define VBTN_NOUSE 0
-#define FINGER_MAX 15
+#define FINGER_MAX 10
 
 typedef struct _vbtn_rect {
 	float x;
