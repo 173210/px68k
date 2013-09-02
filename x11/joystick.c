@@ -33,34 +33,13 @@ BYTE JoyState0[2];
 BYTE JoyState1[2];
 BYTE JoyPortData[2];
 
-#ifdef ANDROID
-
-#define VBTN_MAX 64
-#define VBTN_ON 2
-#define VBTN_OFF 1
-#define VBTN_NOUSE 0
-#define FINGER_MAX 15
-
-// SDL_FINGERと比較するので範囲は0~1.0
-typedef struct _vbtn_rect {
-	float x;
-	float y;
-	float x2;
-	float y2;
-} VBTN_RECT;
-
-VBTN_RECT vbtn_rect[VBTN_MAX];
-BYTE vbtn_state[VBTN_MAX];
-
-#endif
-
-#define SET_VBTN(id, bx, by)					\
-{								\
-	vbtn_state[id] = VBTN_OFF;				\
-	vbtn_rect[id].x = (float)(bx) / 800.0;			\
-	vbtn_rect[id].y = (float)(by) / 600.0;			\
-	vbtn_rect[id].x2 = ((float)(bx) + 130.0) / 800.0;	\
-	vbtn_rect[id].y2 = ((float)(by) + 130.0) / 600.0;	\
+#define SET_VBTN(id, bx, by)			\
+{						\
+	vbtn_state[id] = VBTN_OFF;		\
+	vbtn_rect[id].x = (float)bx;		\
+	vbtn_rect[id].y = (float)by;		\
+	vbtn_rect[id].x2 = (float)(bx) + 130.0;	\
+	vbtn_rect[id].y2 = (float)(by) + 130.0;	\
 }
 
 void Joystick_Init(void)
@@ -243,13 +222,13 @@ done:
 			if (vbtn_state[j] == VBTN_NOUSE)
 				continue;
 			// 性能を考え一個ずつ判定
-			if (vbtn_rect[j].x > fx)
+			if (vbtn_rect[j].x / 800.0 > fx)
 				continue;
-			if (vbtn_rect[j].x2 < fx)
+			if (vbtn_rect[j].x2 / 800.0 < fx)
 				continue;
-			if (vbtn_rect[j].y > fy)
+			if (vbtn_rect[j].y / 600.0 > fy)
 				continue;
-			if (vbtn_rect[j].y2 < fy)
+			if (vbtn_rect[j].y2 / 600.0 < fy)
 				continue;
 
 			//マッチしたらオンにする
