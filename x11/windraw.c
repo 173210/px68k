@@ -301,10 +301,10 @@ int WinDraw_Init(void)
 //	glTexParameteri( GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
 	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, 1024, 1024, 0, GL_RGB, GL_UNSIGNED_SHORT_5_6_5, ScrBuf);
 
-	WORD BtnTex[130*130];
+	WORD BtnTex[VBTN_WIDTH*VBTN_HEIGHT];
 	int i;
 	//とりあえず薄めの緑で。
-	for (i = 0; i < 130*130; i++) {
+	for (i = 0; i < VBTN_WIDTH*VBTN_HEIGHT; i++) {
 		BtnTex[i] = 0x03e0;
 	}
 
@@ -313,7 +313,7 @@ int WinDraw_Init(void)
 		glBindTexture(GL_TEXTURE_2D, texid[i]);
 		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR );
 		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR );
-		glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, 130, 130, 0, GL_RGB, GL_UNSIGNED_SHORT_5_6_5, BtnTex);
+		glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, VBTN_WIDTH, VBTN_HEIGHT, 0, GL_RGB, GL_UNSIGNED_SHORT_5_6_5, BtnTex);
 	}
 #elif defined(PSP)
 

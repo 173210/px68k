@@ -29,6 +29,8 @@ extern BYTE JoyKeyState;
 #ifdef ANDROID
 
 #define VBTN_MAX 64
+#define VBTN_WIDTH 64
+#define VBTN_HEIGHT 64
 #define VBTN_ON 2
 #define VBTN_OFF 1
 #define VBTN_NOUSE 0

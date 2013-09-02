@@ -33,13 +33,13 @@ BYTE JoyState0[2];
 BYTE JoyState1[2];
 BYTE JoyPortData[2];
 
-#define SET_VBTN(id, bx, by)			\
-{						\
-	vbtn_state[id] = VBTN_OFF;		\
-	vbtn_rect[id].x = (float)bx;		\
-	vbtn_rect[id].y = (float)by;		\
-	vbtn_rect[id].x2 = (float)(bx) + 130.0;	\
-	vbtn_rect[id].y2 = (float)(by) + 130.0;	\
+#define SET_VBTN(id, bx, by)				\
+{							\
+	vbtn_state[id] = VBTN_OFF;			\
+	vbtn_rect[id].x = (float)bx;			\
+	vbtn_rect[id].y = (float)by;			\
+	vbtn_rect[id].x2 = (float)(bx) + VBTN_WIDTH;	\
+	vbtn_rect[id].y2 = (float)(by) + VBTN_HEIGHT;	\
 }
 
 void Joystick_Init(void)
